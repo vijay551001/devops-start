@@ -1,0 +1,28 @@
+name: DevOps CI Pipeline
+
+# Trigger this pipeline every time someone pushes code to the 'main' branch
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    # Run this on a clean, cloud-hosted Linux server provided by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Clone your code from GitHub onto the cloud server
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Step 2: Set up Docker environment on the cloud runner
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    # Step 3: Test if the Dockerfile builds successfully without errors
+    - name: Build Docker Image
+      run: |
+        docker build -t test-app:latest .
+        
+    - name: Success Message
+      run: echo "The pipeline completed successfully! The Docker image is valid."
