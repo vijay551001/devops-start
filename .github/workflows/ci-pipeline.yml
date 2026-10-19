@@ -24,11 +24,17 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     # 3. Build AND automatically upload the package to your Docker Hub registry
+
     - name: Build and Push Docker Image
+
       uses: docker/build-push-action@v5
+
       with:
+
         context: .
+
         push: true
-        tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/my-first-devops-app:latest
-          ${{ secrets.DOCKERHUB_USERNAME }}/my-first-devops-app:${{ github.sha }}
+
+        tags: vijay551001/my-first-devops-app:latest
+
+ 
