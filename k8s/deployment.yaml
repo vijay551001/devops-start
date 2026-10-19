@@ -13,9 +13,10 @@ spec:
     metadata:
       labels:
         app: my-frontend
-    spec:
+         
+  spec:
       containers:
       - name: web-app
-        image: vijay551001/my-first-devops-app:5  # <── Change this number to match your latest successful pipeline run
+        image: vijay551001/my-first-devops-app:latest
         ports:
          - containerPort: 8000
