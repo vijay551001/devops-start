@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
       - name: web-app
-        # ⚠️ Replace 'your_dockerhub_username' with your actual Docker Hub username below:
-        image: vijay551001/my-first-devops-app:latest
+        image: vijay551001/my-first-devops-app:5  # <── Change this number to match your latest successful pipeline run
         ports:
-        - containerPort: 8000
+         - containerPort: 8000
